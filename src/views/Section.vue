@@ -68,7 +68,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import axios from 'axios'
 import Gallery from '@/components/Gallery.vue'
 import Frame from '@/components/Frame.vue'
-import { Section } from '@/types'
+import { Section, Image } from '@/types'
 
 @Component({
   components: {
@@ -87,7 +87,7 @@ export default class Home extends Vue {
     })
   }
 
-  clickImage(image) {
+  clickImage(image: Image) {
     this.galleryImageUrl = image.url
     this.galleryImageDesc = image.desc.replace(/=/g, ' ')
   }

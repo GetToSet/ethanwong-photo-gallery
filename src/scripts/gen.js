@@ -17,7 +17,7 @@ function getFileExtension(filename) {
 function gen() {
   const sections = []
   const sectionList = fs.readdirSync(PHOTOS_DIR).reverse()
-  sectionList.forEach(dirName => {
+  sectionList.forEach((dirName) => {
     if (dirName === '.DS_Store' || dirName === 'index.json') {
       return
     }

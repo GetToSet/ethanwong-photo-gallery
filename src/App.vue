@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="row">
     <div class="col-xs">
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>

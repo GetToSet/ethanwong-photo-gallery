@@ -6,7 +6,10 @@
         oncontextmenu="return false;"
         :imageUrl="galleryImageUrl"
         :imageDesc="galleryImageDesc"
-        @click.native="galleryImageUrl = null;galleryImageDesc=null"
+        @click.native="
+          galleryImageUrl = null
+          galleryImageDesc = null
+        "
       ></Gallery>
 
       <div class="row page">
@@ -21,11 +24,9 @@
               <div class="row end-xs">
                 <div class="col-xs nav">
                   <a class="nav-item" href="https://blog.joway.io" target="_blank">Blog</a>
-                  <a
-                    class="nav-item"
-                    href="https://www.instagram.com/joway.w/"
-                    target="_blank"
-                  >Instagram</a>
+                  <a class="nav-item" href="https://www.instagram.com/joway.w/" target="_blank"
+                    >Instagram</a
+                  >
                   <a class="nav-item" href="https://joway.io" target="_blank">@Joway</a>
                 </div>
               </div>
@@ -81,7 +82,7 @@ export default class Home extends Vue {
   galleryImageDesc: string | null = null
 
   created() {
-    axios.get('/photos/index.json').then(response => {
+    axios.get('/photos/index.json').then((response) => {
       this.sections = response.data
     })
   }

@@ -1,7 +1,10 @@
-# Jallery
+# Ethan's Photo Gallery
 
 ## Tech Stack
 
 - Vue
-- [Imagic](https://github.com/joway/imagic)
-- [Staticaly](https://www.staticaly.com)
+- Bootstrap 5
+
+## Special Thanks
+
+- [joway/jallery](https://github.com/joway/jallery)

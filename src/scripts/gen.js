@@ -36,7 +36,7 @@ function gen() {
       )}`
       images.push({
         url: injectCDN(`${SCHEME}://${DOMAIN}/photos/${dirName}/${filename}`),
-        thumbnailUrl: injectCDN(`${SCHEME}://${DOMAIN}/photos/${dirName}/${thumbnailFilename}`),
+        thumbnailURL: injectCDN(`${SCHEME}://${DOMAIN}/photos/${dirName}/${thumbnailFilename}`),
         desc: filename.replace(getFileExtension(filename), '').split('-')[1],
       })
     })

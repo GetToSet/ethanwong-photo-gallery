@@ -1,6 +1,6 @@
 <template>
-  <div :class="`gallery ${imageUrl !== null ? 'display' : 'hide'}`">
-    <img :src="`${imageUrl}`" class="gallery-img" />
+  <div :class="`gallery ${imageURL !== null ? 'display' : 'hide'}`">
+    <img :src="`${imageURL}`" class="gallery-img" />
     <div class="gallery-desc">
       <span>{{ imageDesc }}</span>
     </div>
@@ -13,7 +13,7 @@ import { Image } from '@/types'
 
 @Component
 export default class Gallery extends Vue {
-  @Prop() private imageUrl!: string | null
+  @Prop() private imageURL!: string | null
   @Prop() private imageDesc!: string | null
 }
 </script>

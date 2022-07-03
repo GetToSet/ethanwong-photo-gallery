@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-xs">
       <Gallery
-        v-if="galleryImageUrl"
+        v-if="galleryImageURL"
         oncontextmenu="return false;"
-        :imageUrl="galleryImageUrl"
+        :imageURL="galleryImageURL"
         :imageDesc="galleryImageDesc"
         @click.native="
-          galleryImageUrl = null
+          galleryImageURL = null
           galleryImageDesc = null
         "
       ></Gallery>
@@ -78,7 +78,7 @@ import { Section, Image } from '@/types'
 })
 export default class Home extends Vue {
   sections: Section[] = []
-  galleryImageUrl: string | null = null
+  galleryImageURL: string | null = null
   galleryImageDesc: string | null = null
 
   created() {
@@ -88,7 +88,7 @@ export default class Home extends Vue {
   }
 
   clickImage(image: Image) {
-    this.galleryImageUrl = image.url
+    this.galleryImageURL = image.url
     this.galleryImageDesc = image.desc.replace(/=/g, ' ')
   }
 }

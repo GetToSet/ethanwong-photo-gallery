@@ -23,11 +23,13 @@
             <div class="col-xs-12 col-md-3">
               <div class="row end-xs">
                 <div class="col-xs nav">
-                  <a class="nav-item" href="https://blog.joway.io" target="_blank">Blog</a>
-                  <a class="nav-item" href="https://www.instagram.com/joway.w/" target="_blank"
+                  <a class="nav-item" href="https://www.instagram.com/gettoset/" target="_blank"
                     >Instagram</a
                   >
-                  <a class="nav-item" href="https://joway.io" target="_blank">@Joway</a>
+                  <a class="nav-item" href="https://unsplash.com/@ethanwong/" target="_blank"
+                    >Unsplash</a
+                  >
+                  <a class="nav-item" href="https://ethanwong.me" target="_blank">Home</a>
                 </div>
               </div>
             </div>

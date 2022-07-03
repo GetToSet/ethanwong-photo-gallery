@@ -1,65 +1,67 @@
 <template>
-  <div class="row">
-    <div class="col-xs">
-      <Gallery
-        v-if="galleryImageURL"
-        oncontextmenu="return false;"
-        :imageURL="galleryImageURL"
-        :imageDesc="galleryImageDesc"
-        @click.native="
-          galleryImageURL = null
-          galleryImageDesc = null
-        "
-      ></Gallery>
-
-      <div class="row page">
-        <div class="col-xs">
-          <div class="row">
-            <div class="col-xs-12 col-md-9">
-              <router-link to="/">
-                <h1 class="site-name">Jallery</h1>
-              </router-link>
-            </div>
-            <div class="col-xs-12 col-md-3">
-              <div class="row end-xs">
-                <div class="col-xs nav">
-                  <a class="nav-item" href="https://www.instagram.com/gettoset/" target="_blank"
-                    >Instagram</a
-                  >
-                  <a class="nav-item" href="https://unsplash.com/@ethanwong/" target="_blank"
-                    >Unsplash</a
-                  >
-                  <a class="nav-item" href="https://ethanwong.me" target="_blank">Home</a>
-                </div>
-              </div>
-            </div>
+  <div>
+    <Gallery
+      v-if="galleryImageURL"
+      oncontextmenu="return false;"
+      :imageURL="galleryImageURL"
+      :imageDesc="galleryImageDesc"
+      @click.native="
+        galleryImageURL = null
+        galleryImageDesc = null
+      "
+    ></Gallery>
+    <div class="container-xxl">
+      <div class="page">
+        <div class="row mt-5 gy-1">
+          <div class="col-xs-12 col-md-9">
+            <router-link to="/">
+              <h1 class="site-name d-inline-block">Ethan's Photo Gallery</h1>
+            </router-link>
           </div>
-          <div class="row section" v-for="(section, index) in sections" :key="index">
-            <div class="col-xs">
-              <div class="row end-xs">
-                <div class="col-xs">
-                  <h2 class="section-title">{{ section.title.replace(/=/g, ' ') }}</h2>
-                </div>
-              </div>
-
-              <div class="row">
-                <div
-                  class="col-xs-12 col-sm-6 col-md-3"
-                  oncontextmenu="return false;"
-                  v-for="(image, index) in section.images"
-                  :key="index"
-                  @click="clickImage(image)"
-                >
-                  <div class="row center-xs">
-                    <Frame :image="image" />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-xs-12 col-md-3 d-flex flex-row-reverse align-items-center">
+            <a class="nav-item" href="https://ethanwong.me" title="Home" target="_blank">Home</a>
+            <a
+              class="nav-item"
+              href="https://unsplash.com/@ethanwong/"
+              title="Unsplash"
+              target="_blank"
+              >Unsplash</a
+            >
+            <a
+              class="nav-item"
+              href="https://www.instagram.com/gettoset/"
+              title="Instagram"
+              target="_blank"
+              >Instagram</a
+            >
           </div>
-
-          <footer class="row center-xs footer"></footer>
         </div>
+        <div v-for="(section, index) in sections" :key="index">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-end mt-5 mb-3">
+              <h2 class="section-title">{{ section.title.replace(/=/g, ' ') }}</h2>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div
+              class="col-xs-12 col-sm-6 col-lg-4 col-xxl-3"
+              oncontextmenu="return false;"
+              v-for="(image, index) in section.images"
+              :key="index"
+              @click="clickImage(image)"
+            >
+              <Frame :image="image" />
+            </div>
+          </div>
+        </div>
+        <footer class="row my-4">
+          <div class="col text-center">
+            &copy;&nbsp;{{ new Date().getFullYear() }}
+            <a href="mailto:e1hanw0ng@gmail.com" title="e1hanw0ng@gmail.com">Ethan Wong</a>
+            |
+            <a href="https://github.com/GetToSet/ethanwong-photo-gallery/" title="GitHub">GitHub</a>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
@@ -97,22 +99,27 @@ export default class Home extends Vue {
 </script>
 <style scoped>
 .site-name {
-  font-family: 'Permanent Marker', Times, serif;
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 4px 6px;
+  color: #fff;
+  background: #000;
 }
 .page {
   margin: 0 50px;
 }
-
 .nav {
   margin: 30px 0;
 }
 .nav-item {
-  margin: 0 12px;
+  margin-left: 12px;
+  font-size: 1.2rem;
 }
 .nav-item:hover {
   text-decoration: underline;
 }
-.footer {
-  height: 100px;
+.section-title {
+  text-align: right;
 }
 </style>

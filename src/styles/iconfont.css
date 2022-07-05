@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("../assets/iconfont.woff2") format("woff2"),
+    url("../assets/iconfont.woff") format("woff"),
+    url("../assets/iconfont.ttf") format("truetype"); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-download:before {
+  content: "\e614";
+}
+
+.icon-location:before {
+  content: "\e613";
+}
+
+.icon-exposure:before {
+  content: "\e952";
+}
+
+.icon-copyright:before {
+  content: "\e612";
+}
+
+.icon-cc_by:before {
+  content: "\e600";
+}
+
+.icon-cc:before {
+  content: "\e601";
+}
+
+.icon-cc_sa:before {
+  content: "\e602";
+}
+
+.icon-cc_nc:before {
+  content: "\e603";
+}
+
+.icon-cc_nd:before {
+  content: "\e604";
+}
+
+.icon-cc0:before {
+  content: "\e605";
+}
+
+.icon-notion:before {
+  content: "\e611";
+}
+
+.icon-earth:before {
+  content: "\e66f";
+}
+
+.icon-xyzfm:before {
+  content: "\e8c1";
+}
+
+.icon-bookmarks:before {
+  content: "\e640";
+}
+
+.icon-yuque:before {
+  content: "\eab5";
+}
+
+.icon-dribbble:before {
+  content: "\e608";
+}
+
+.icon-jike:before {
+  content: "\e609";
+}
+
+.icon-github:before {
+  content: "\e60a";
+}
+
+.icon-unsplash:before {
+  content: "\e60b";
+}
+
+.icon-facebook:before {
+  content: "\e60c";
+}
+
+.icon-twitter:before {
+  content: "\e60d";
+}
+
+.icon-instagram:before {
+  content: "\e60e";
+}
+
+.icon-wechat:before {
+  content: "\e60f";
+}
+
+.icon-weibo:before {
+  content: "\e610";
+}
+
+.icon-unsplash-circle:before {
+  content: "\eab6";
+}

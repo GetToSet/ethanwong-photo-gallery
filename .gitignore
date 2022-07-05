@@ -1,4 +1,7 @@
 public/photos
+assets/photos
+public/photos.json
+
 .DS_Store
 node_modules
 /dist

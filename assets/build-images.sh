@@ -1,6 +1,6 @@
 # /bin/bash
-find ./public/raw -mindepth 2 -maxdepth 2 -type f -name '*.png' -o -name '*.jpg' -exec sh -c '
-  rm -rf ./public/photos
+find ./assets/raw -mindepth 2 -maxdepth 2 -type f -name '*.png' -o -name '*.jpg' -exec sh -c '
+  rm -rf ./assets/photos
   for f do
     source=$f
     output=`echo $source | sed "s/raw/photos/g"`

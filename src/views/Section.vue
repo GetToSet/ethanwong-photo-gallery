@@ -82,7 +82,7 @@ export default class Home extends Vue {
   galleryImageDesc: string | null = null
 
   created() {
-    axios.get('/photos/index.json').then((response) => {
+    axios.get('/photos.json').then((response) => {
       this.sections = response.data
     })
   }

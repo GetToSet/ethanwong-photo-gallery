@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-const PHOTOS_DIR = './public/photos'
-const PHOTOS_INDEX_FILENAME = './public/photos/index.json'
+const PHOTOS_DIR = './assets/photos'
+const PHOTOS_INDEX_FILENAME = './public/photos.json'
 const DOMAIN = process.env.DOMAIN || 'pho.joway.io'
 const SCHEME = process.env.SCHEME || 'https'
 const CDN_PREFIX = 'https://cdn.staticaly.com/img/'
@@ -18,7 +18,7 @@ function gen() {
   const sections = []
   const sectionList = fs.readdirSync(PHOTOS_DIR).reverse()
   sectionList.forEach((dirName) => {
-    if (dirName === '.DS_Store' || dirName === 'index.json') {
+    if (dirName === '.DS_Store') {
       return
     }
     const dirFullName = PHOTOS_DIR + '/' + dirName

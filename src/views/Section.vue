@@ -5,14 +5,22 @@
       oncontextmenu="return false;"
       :imageURL="galleryImageURL"
       :imageDesc="galleryImageDesc"
+      :badgeNames="badges"
+      :location="location"
+      :unsplashID="unsplashID"
+      :downloadURL="downloadURL"
       @click.native="
         galleryImageURL = null
         galleryImageDesc = null
+        badges = null
+        location = undefined
+        unsplashID = undefined
+        downloadURL = undefined
       "
     ></Gallery>
     <div class="container-xxl">
       <div class="page">
-        <div class="row mt-5 gy-1">
+        <div class="row mt-5 gy-2">
           <div class="col-xs-12 col-md-9">
             <router-link to="/">
               <h1 class="site-name d-inline-block">Ethan's Photo Gallery</h1>
@@ -84,30 +92,38 @@ export default class Home extends Vue {
   sections: Section[] = []
   galleryImageURL: string | null = null
   galleryImageDesc: string | null = null
+  badges: string[] | null = null
+  location?: string
+  unsplashID?: string
+  downloadURL?: string
 
   created() {
-    axios.get('/photos.json').then((response) => {
+    axios.get('./photos.json').then((response) => {
       this.sections = response.data
     })
   }
 
   clickImage(image: Image) {
     this.galleryImageURL = image.url
-    this.galleryImageDesc = image.desc.replace(/=/g, ' ')
+    this.galleryImageDesc = (image.desc ?? '').replace(/=/g, ' ')
+    this.badges = image.badges || null
+    this.location = image.location
+    this.unsplashID = image.unsplashID
+    this.downloadURL = image.downloadURL
   }
 }
 </script>
 <style scoped>
 .site-name {
   font-family: 'Merriweather', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   padding: 4px 6px;
   color: #fff;
   background: #000;
 }
 .page {
-  margin: 0 50px;
+  margin: 0 32px;
 }
 .nav {
   margin: 30px 0;

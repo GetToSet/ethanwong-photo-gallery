@@ -1,5 +1,6 @@
 public/photos
 assets/photos
+public/raw
 public/photos.json
 
 .DS_Store

@@ -5,7 +5,35 @@
         <img :src="`${imageURL}`" class="gallery-img" />
       </div>
       <div class="gallery-desc" @click.stop>
-        <span>{{ imageDesc }}</span>
+        <div class="mb-2" v-if="imageDesc">
+          {{ imageDesc }}
+        </div>
+        <div>
+          <a
+            v-for="badge in badges"
+            :key="badge.name"
+            target="_blank"
+            class="badge-link"
+            @click="badgeClick(badge)"
+            @mouseover="
+              currentHint = badge.hint
+              currentLink = badge.link || null
+            "
+            @mouseout="badgeMouseOut(badge)"
+            :download="badge.download && ''"
+          >
+            <Iconfont
+              class="badge-icon"
+              :name="icon"
+              :fontSize="'1.2rem'"
+              v-for="icon in badge.icons"
+              :key="icon"
+            />
+          </a>
+        </div>
+        <div class="gallery-hint mt-1">
+          <a :href="currentLink" target="_blank">{{ currentHint }}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -13,12 +41,72 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { Image } from '@/types'
+import Iconfont from '@/components/Iconfont.vue'
+import { Badge } from '@/types'
+import allBadges from '@/allBadges'
 
-@Component
+@Component({
+  components: { Iconfont },
+})
 export default class Gallery extends Vue {
+  currentHint: string | null = null
+  currentLink: string | null = null
+
   @Prop() private imageURL!: string | null
   @Prop() private imageDesc!: string | null
+  @Prop() private badgeNames!: string[] | null
+  @Prop() private location?: string
+  @Prop() private unsplashID?: string
+  @Prop() private downloadURL?: string
+
+  get badges(): Badge[] {
+    if (!this.badgeNames) {
+      return []
+    }
+
+    let retBadges = this.badgeNames
+      .map((badge) => {
+        if (allBadges[badge] && !allBadges[badge].template) {
+          return allBadges[badge]
+        }
+      })
+      .filter((b) => b) as Badge[]
+
+    if (this.location) {
+      retBadges.unshift({
+        ...allBadges['location'],
+        hint: this.location,
+      })
+    }
+
+    if (this.unsplashID) {
+      retBadges.unshift({
+        ...allBadges['unsplash'],
+        link: `https://unsplash.com/photos/${this.unsplashID}`,
+      })
+    }
+
+    if (this.downloadURL) {
+      retBadges.push({
+        ...allBadges['download'],
+        link: this.downloadURL,
+        download: true,
+      })
+    }
+
+    return retBadges
+  }
+  badgeMouseOut(badge: Badge) {
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      this.currentHint = null
+      this.currentLink = null
+    }
+  }
+  badgeClick(badge: Badge) {
+    if (!window.matchMedia('(pointer: coarse)').matches && badge.link) {
+      open(badge.link, '_blank')
+    }
+  }
 }
 </script>
 
@@ -60,6 +148,24 @@ export default class Gallery extends Vue {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 32px;
+}
+.badge-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.badge-link:not(:last-child) {
+  margin-right: 10px;
+}
+.badge-link:hover {
+  opacity: 0.75;
+}
+.badge-icon:not(:last-child) {
+  margin-right: 4px;
+}
+.gallery-hint {
+  min-height: 1.5rem;
+  font-size: 1rem;
+  opacity: 0.75;
 }
 .hide {
   display: none;

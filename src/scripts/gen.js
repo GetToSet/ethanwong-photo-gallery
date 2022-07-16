@@ -103,10 +103,8 @@ function gen() {
     encoding: 'utf8',
   })
 
-  if (IS_LOCAL) {
-    shell(`rm -rf ${PUBLIC_PHOTOS_DIR}`)
-    shell(`cp -R ${PHOTOS_DIR} ${PUBLIC_PHOTOS_DIR}`)
-  }
+  shell(`rm -rf ${PUBLIC_PHOTOS_DIR}`)
+  shell(`cp -R ${PHOTOS_DIR} ${PUBLIC_PHOTOS_DIR}`)
 }
 
 gen()

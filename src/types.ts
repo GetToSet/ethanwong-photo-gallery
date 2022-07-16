@@ -8,6 +8,10 @@ export interface Image {
   downloadURL?: string
 }
 
+export interface Category {
+  title: string
+  sections: number[]
+}
 export interface Section {
   title: string
   images: Image[]

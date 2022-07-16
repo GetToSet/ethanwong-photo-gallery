@@ -35,7 +35,7 @@ function gen() {
     const sectionTitle = dirFullName.split('-')[1]
     const images = []
     const photosList = fs.readdirSync(dirFullName)
-    const sectionMetadata = metadata[sectionID]
+    const sectionMetadata = metadata['sections'][sectionID]
 
     fs.mkdirSync(`${PUBLIC_RAW_DIR}/${dirName}`, { recursive: true })
 
@@ -99,7 +99,12 @@ function gen() {
     })
   })
 
-  fs.writeFileSync(PHOTOS_INDEX_FILENAME, JSON.stringify(sections), {
+  const photos = {
+    categories: metadata['categories'],
+    sections,
+  }
+
+  fs.writeFileSync(PHOTOS_INDEX_FILENAME, JSON.stringify(photos), {
     encoding: 'utf8',
   })
 

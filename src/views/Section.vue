@@ -44,7 +44,17 @@
             >
           </div>
         </div>
-        <div v-for="(section, index) in sections" :key="index">
+        <div class="mt-3">
+          <router-link
+            class="category-item"
+            :class="{ 'category-item-selected': currentCategory == id }"
+            v-for="(category, id) in this.categories"
+            :key="id"
+            :to="id"
+            >{{ category.title }}</router-link
+          >
+        </div>
+        <div v-for="(section, index) in getSections(currentCategory)" :key="index">
           <div class="row">
             <div class="col-12 d-flex justify-content-end mt-5 mb-3">
               <h2 class="section-title">{{ section.title.replace(/=/g, ' ') }}</h2>
@@ -80,7 +90,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import axios from 'axios'
 import Gallery from '@/components/Gallery.vue'
 import Frame from '@/components/Frame.vue'
-import { Section, Image } from '@/types'
+import { Category, Section, Image } from '@/types'
 
 @Component({
   components: {
@@ -90,6 +100,7 @@ import { Section, Image } from '@/types'
 })
 export default class Home extends Vue {
   sections: Section[] = []
+  categories: Record<string, Category> = {}
   galleryImageURL: string | null = null
   galleryImageDesc: string | null = null
   badges: string[] | null = null
@@ -99,8 +110,24 @@ export default class Home extends Vue {
 
   created() {
     axios.get('./photos.json').then((response) => {
-      this.sections = response.data
+      this.categories = response.data.categories
+      this.sections = response.data.sections
     })
+  }
+
+  get currentCategory(): string {
+    return this.$route.params.section ?? 'film'
+  }
+
+  getSections(category: string): Section[] {
+    if (!this.categories[category]) {
+      return []
+    }
+    return this.categories[category].sections
+      .map((idx) => {
+        return this.sections[idx]
+      })
+      .filter((x) => x)
   }
 
   clickImage(image: Image) {
@@ -131,6 +158,18 @@ export default class Home extends Vue {
 }
 .nav-item:hover {
   text-decoration: underline;
+}
+.category-item {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  height: 1.75rem;
+}
+.category-item-selected {
+  border-bottom: 2px solid #000;
+}
+.category-item:not(:first-child) {
+  margin-left: 8px;
 }
 .section-title {
   text-align: right;

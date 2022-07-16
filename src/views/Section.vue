@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import axios from 'axios'
 import Gallery from '@/components/Gallery.vue'
 import Frame from '@/components/Frame.vue'
@@ -124,9 +124,6 @@ export default class Home extends Vue {
 }
 .page {
   margin: 0 32px;
-}
-.nav {
-  margin: 30px 0;
 }
 .nav-item {
   margin-left: 12px;

@@ -47,14 +47,14 @@
         <div class="mt-3">
           <router-link
             class="category-item"
-            :class="{ 'category-item-selected': currentCategory == id }"
+            :class="{ 'category-item-selected': currentCategoryID == id }"
             v-for="(category, id) in this.categories"
             :key="id"
             :to="id"
             >{{ category.title }}</router-link
           >
         </div>
-        <div v-for="(section, index) in getSections(currentCategory)" :key="index">
+        <div v-for="(section, index) in getSections(currentCategoryID)" :key="index">
           <div class="row">
             <div class="col-12 d-flex justify-content-end mt-5 mb-3">
               <h2 class="section-title">{{ section.title.replace(/=/g, ' ') }}</h2>
@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import axios from 'axios'
 import Gallery from '@/components/Gallery.vue'
 import Frame from '@/components/Frame.vue'
@@ -109,13 +109,27 @@ export default class Home extends Vue {
   downloadURL?: string
 
   created() {
+    // document.title =
     axios.get('./photos.json').then((response) => {
       this.categories = response.data.categories
       this.sections = response.data.sections
     })
   }
 
-  get currentCategory(): string {
+  @Watch('currentCategory')
+  onChildChanged(category: Category) {
+    if (category && category.title) {
+      document.title = `${category.title} - Ethan's Photo Gallery`
+    } else {
+      document.title = "Ethan's Photo Gallery"
+    }
+  }
+
+  get currentCategory(): Category | undefined {
+    return this.categories[this.currentCategoryID]
+  }
+
+  get currentCategoryID(): string {
     return this.$route.params.section ?? 'film'
   }
 

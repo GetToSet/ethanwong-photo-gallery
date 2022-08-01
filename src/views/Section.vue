@@ -72,6 +72,9 @@
             </div>
           </div>
         </div>
+        <div class="mt-4">
+          <CusdisComment appID="d189c9a3-6021-4f85-a628-2486b7a2058d" :pageID="currentCategoryID" />
+        </div>
         <footer class="row my-4">
           <div class="col text-center">
             &copy;&nbsp;{{ new Date().getFullYear() }}
@@ -88,12 +91,14 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import axios from 'axios'
+import CusdisComment from '@/components/CusdisComment.vue'
 import Gallery from '@/components/Gallery.vue'
 import Frame from '@/components/Frame.vue'
 import { Category, Section, Image } from '@/types'
 
 @Component({
   components: {
+    CusdisComment,
     Frame,
     Gallery,
   },

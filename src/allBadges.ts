@@ -50,7 +50,7 @@ export default {
   },
   edited: {
     name: 'edited',
-    hint: 'This photo has been edited.',
+    hint: 'This photo has been edited',
     icons: ['exposure'],
   },
   location: {

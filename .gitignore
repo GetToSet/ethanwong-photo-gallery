@@ -1,7 +1,9 @@
-public/photos
-assets/photos
 public/raw
+public/photos
 public/photos.json
+
+assets/raw
+assets/photos
 
 .DS_Store
 node_modules

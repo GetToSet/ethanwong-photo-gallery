@@ -14,13 +14,14 @@
             :key="badge.name"
             target="_blank"
             class="badge-link"
-            @click="badgeClick(badge)"
+            @click="!badge.download ? badgeClick(badge) : null"
             @mouseover="
               currentHint = badge.hint
               currentLink = badge.link || null
             "
             @mouseout="badgeMouseOut(badge)"
-            :download="badge.download && ''"
+            :download="badge.link ? badge.link.split('/').pop() : null"
+            :href="badge.download ? badge.link : null"
           >
             <Iconfont
               class="badge-icon"

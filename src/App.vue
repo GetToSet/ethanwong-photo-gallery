@@ -5,30 +5,31 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import 'bootstrap/dist/css/bootstrap-reboot.css'
-import 'bootstrap/dist/css/bootstrap-grid.css'
-import 'bootstrap/dist/css/bootstrap-utilities.css'
-
 @Component({
   components: {},
 })
 export default class App extends Vue {}
 </script>
-<style>
+<style lang="scss">
+@import 'bootstrap/scss/bootstrap-reboot.scss';
+@import 'bootstrap/scss/bootstrap-grid.scss';
+@import 'bootstrap/scss/bootstrap-utilities.scss';
+
 body {
   margin: 0;
   font-family: 'Solway', sans-serif;
-  background-color: whitesmoke;
+  background-color: var(--theme-background);
+  color: var(--theme-text);
 }
 a {
+  color: inherit;
   text-decoration: none;
-  color: #000;
-}
-a:hover {
-  text-decoration: underline;
-  color: #333;
+  &:hover {
+    text-decoration: underline;
+    color: var(--theme-highlight);
+  }
 }
 ::selection {
-  background: #bbb;
+  background: var(--selection-background);
 }
 </style>

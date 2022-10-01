@@ -165,8 +165,8 @@ export default class Home extends Vue {
   font-size: 1.5rem;
   font-weight: 400;
   padding: 4px 6px;
-  color: #fff;
-  background: #000;
+  color: var(--theme-inverse);
+  background: var(--theme-text);
 }
 .page {
   margin: 0 32px;

@@ -117,7 +117,7 @@ export default class Gallery extends Vue {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: whitesmoke;
+  background-color: var(--theme-background);
   margin: 0;
   padding: 0;
 }
@@ -139,7 +139,7 @@ export default class Gallery extends Vue {
 }
 .gallery-img {
   /* border: solid 10px #000; */
-  box-shadow: 20px 20px 20px #ccc;
+  box-shadow: 20px 20px 20px var(--gallery-image-shadow);
   max-width: 100%;
   max-height: 100%;
 }

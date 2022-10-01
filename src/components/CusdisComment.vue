@@ -6,7 +6,7 @@
     :data-page-id="pageID"
     :data-page-url="currentLocation"
     :data-page-title="currentTitle"
-    data-theme="light"
+    data-theme="auto"
   />
 </template>
 

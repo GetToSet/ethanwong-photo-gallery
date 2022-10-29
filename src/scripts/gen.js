@@ -13,7 +13,7 @@ const PUBLIC_PHOTOS_DIR = './public/photos'
 
 const IS_LOCAL = process.env.IS_LOCAL || false
 
-const DOMAIN = IS_LOCAL ? '' : process.env.DOMAIN || 'assets.gettoset.cn/gallery'
+const DOMAIN = IS_LOCAL ? '' : process.env.DOMAIN || 'gallery.ethanwong.me'
 const SCHEME = IS_LOCAL ? '' : process.env.SCHEME || 'https'
 
 function getFileExtension(filename) {

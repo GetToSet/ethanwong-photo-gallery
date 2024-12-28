@@ -37,7 +37,7 @@
             >
             <a
               class="nav-item"
-              href="https://www.instagram.com/gettoset/"
+              href="https://www.instagram.com/e1hanw0ng/"
               title="Instagram"
               target="_blank"
               >Instagram</a

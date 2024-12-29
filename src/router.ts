@@ -17,7 +17,7 @@ export default new Router({
       component: Section,
     },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, _from, _savedPosition) {
     if (to.hash) {
       return {
         selector: to.hash,

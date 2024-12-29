@@ -11,9 +11,9 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class App extends Vue {}
 </script>
 <style lang="scss">
-@import 'bootstrap/scss/bootstrap-reboot.scss';
-@import 'bootstrap/scss/bootstrap-grid.scss';
-@import 'bootstrap/scss/bootstrap-utilities.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-utilities.scss';
 
 body {
   margin: 0;

@@ -2,7 +2,11 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "@/styles/theme.scss";`,
+        api: 'modern',
+        sassOptions: {
+          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
+        },
+        additionalData: `@import "./styles/theme.scss";`,
       },
     },
   },

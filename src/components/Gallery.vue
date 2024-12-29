@@ -97,7 +97,7 @@ export default class Gallery extends Vue {
 
     return retBadges
   }
-  badgeMouseOut(badge: Badge) {
+  badgeMouseOut(_badge: Badge) {
     if (!window.matchMedia('(pointer: coarse)').matches) {
       this.currentHint = null
       this.currentLink = null

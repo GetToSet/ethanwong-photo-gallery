@@ -12,27 +12,26 @@
     "build-index-local": "export IS_LOCAL=true && node src/scripts/gen.js"
   },
   "dependencies": {
-    "axios": "^0.27.2",
-    "bootstrap": "^5.2.1",
-    "vue": "^2.7.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "vue": "^2.7.16",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.6.5"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-typescript": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "^8.24.0",
-    "eslint-plugin-vue": "^9.5.1",
-    "prettier": "2.7.1",
-    "sass": "^1.55.0",
-    "sass-loader": "^13.0.2",
-    "typescript": "^4.8.4",
-    "vue-template-compiler": "^2.7.10"
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.83.0",
+    "sass-loader": "^13.3.3",
+    "typescript": "^4.9.5"
   }
 }

@@ -94,6 +94,7 @@ function gen() {
     })
 
     sections.push({
+      id: sectionID,
       title: sectionTitle,
       images,
     })

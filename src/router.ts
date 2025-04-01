@@ -21,6 +21,7 @@ export default new Router({
     if (to.hash) {
       return {
         selector: to.hash,
+        behavior: 'smooth',
       }
     }
   },

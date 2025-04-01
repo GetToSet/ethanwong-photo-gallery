@@ -57,7 +57,9 @@
         <div v-for="(section, index) in getSections(currentCategoryID)" :key="index">
           <div class="row">
             <div class="col-12 d-flex justify-content-end mt-5 mb-3">
-              <h2 class="section-title">{{ section.title.replace(/=/g, ' ') }}</h2>
+              <h2 :id="`${section.id}`" class="section-title">
+                {{ section.title.replace(/=/g, ' ') }}
+              </h2>
             </div>
           </div>
           <div class="row g-3">
@@ -123,6 +125,20 @@ export default class Home extends Vue {
     } else {
       document.title = "Ethan's Photo Gallery"
     }
+  }
+
+  @Watch('sections')
+  onSectionsLoaded() {
+    this.$nextTick(() => {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1)
+        const selector = isNaN(Number(hash)) ? `#${hash}` : `[id="${hash}"]`
+        const element = document.querySelector(selector)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    })
   }
 
   get currentCategory(): Category | undefined {

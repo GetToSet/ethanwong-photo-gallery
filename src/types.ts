@@ -13,6 +13,7 @@ export interface Category {
   sections: string[]
 }
 export interface Section {
+  id: string
   title: string
   images: Image[]
 }

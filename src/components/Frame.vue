@@ -1,6 +1,6 @@
 <template>
   <div class="frame">
-    <img class="frame-photo" :src="`${image.thumbnailURL}`" />
+    <img class="frame-photo" :src="`${image.thumbnailURL}`" lazy />
   </div>
 </template>
 

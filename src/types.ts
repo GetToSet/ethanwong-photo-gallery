@@ -10,7 +10,7 @@ export interface Image {
 
 export interface Category {
   title: string
-  sections: number[]
+  sections: string[]
 }
 export interface Section {
   title: string

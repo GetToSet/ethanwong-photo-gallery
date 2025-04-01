@@ -9,7 +9,7 @@ find ./assets/raw -mindepth 2 -maxdepth 2 -type f -name '*.png' -o -name '*.jpg'
     dirname=`echo $output | sed "s/$base/''/g"`
     mkdir -p $dirname
     echo "convert: from $source to $output"
-    convert -resize 1920\> $source $output
-    convert -resize 480\> $source $output_thumbnail
+    magick $source -resize 1920\> $output
+    magick $source -resize 480\> $output_thumbnail
   done
 ' sh {} +

@@ -139,7 +139,7 @@ export default class Home extends Vue {
     }
     return this.categories[category].sections
       .map((idx) => {
-        return this.sections[idx]
+        return this.sections[parseInt(idx)]
       })
       .filter((x) => x)
   }
